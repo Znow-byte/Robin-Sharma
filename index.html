@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Club de las 5 de la Mañana | Ética Profesional</title>
+    
+    <!-- Colores UMG Actualizados: Azul Marino #001F3F, Azul Claro #007BFF, Blanco #FFFFFF -->
+    <style>
+        :root {
+            --umg-marino: #001F3F;
+            --umg-azul: #007BFF;
+            --umg-blanco: #FFFFFF;
+            --umg-gris: #f8f9fa;
+            --umg-texto: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--umg-gris);
+            color: var(--umg-texto);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        header {
+            background-color: var(--umg-marino);
+            color: var(--umg-blanco);
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--umg-marino);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            display: block;
+            color: var(--umg-blanco);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        section {
+            background-color: var(--umg-blanco);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: var(--umg-marino);
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--umg-azul);
+        }
+        
+        h3 {
+            color: var(--umg-marino);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        p, ul li {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        ul {
+            padding-left: 1.2rem;
+        }
+        
+        ul li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--umg-azul);
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .card {
+            background-color: #f5f9ff;
+            padding: 1.3rem;
+            border-radius: 6px;
+            border: 1px solid #deefff;
+        }
+        
+        .card h3 {
+            color: var(--umg-azul);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--umg-azul);
+            color: white;
+            padding: 0.7rem 1.3rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+            margin-top: 0.8rem;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Recursos Multimedia con Portadas */
+        .resource {
+            margin: 1.8rem 0;
+            padding: 1.2rem;
+            background-color: #f8fbff;
+            border-radius: 6px;
+            border: 1px solid #e0efff;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .resource img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            align-self: center;
+        }
+        
+        .resource h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--umg-marino);
+        }
+        
+        .resource p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .resource a {
+            color: var(--umg-azul);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .resource a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Cuestionario Minimalista */
+        .quiz {
+            background-color: #f0f8ff;
+            padding: 1.8rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .question h4 {
+            color: var(--umg-marino);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.7rem;
+            margin: 0.4rem 0;
+            background-color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border: 1px solid #ddd;
+            transition: border-color 0.3s;
+        }
+        
+        .options label:hover {
+            border-color: var(--umg-azul);
+        }
+        
+        input[type="radio"] {
+            margin-right: 0.6rem;
+        }
+        
+        #quiz-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .correct { background-color: #d4edda; color: #155724; }
+        .incorrect { background-color: #f8d7da; color: #721c24; }
+        
+        footer {
+            background-color: var(--umg-marino);
+            color: var(--umg-blanco);
+            text-align: center;
+            padding: 1.8rem 1rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+        
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Responsive */
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            nav ul {
+                flex-wrap: nowrap;
+            }
+            
+            .resource {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .resource img {
+                width: 180px;
+                margin-right: 1rem;
+            }
+        }
+        
+        @media (min-width: 900px) {
+            header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>El Club de las 5 de la Mañana</h1>
+        <p>Robin Sharma | Ética y Desarrollo Profesional</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#fundamentos">Fundamentos</a></li>
+            <li><a href="#libro">Análisis Libro</a></li>
+            <li><a href="#etica">Principios Éticos</a></li>
+            <li><a href="#dilemas">Dilemas</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 1. Fundamentos de Creación Web -->
+        <section id="fundamentos">
+            <h2>1. Fundamentos de Creación Web</h2>
+            
+            <p>La página web ha sido diseñada siguiendo principios de <strong>diseño minimalista</strong>, <strong>accesibilidad</strong> y <strong>usabilidad</strong>, asegurando que el contenido sea claro, directo y funcional en cualquier dispositivo. Se priorizó la experiencia del usuario con una estructura lógica, navegación intuitiva y carga rápida, respetando estándares éticos del diseño digital.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Diseño Minimalista y Accesible</h3>
+                    <p>Se eliminaron elementos decorativos innecesarios para centrar la atención en el contenido educativo. El uso de espacios blancos (white space), tipografía legible y contraste adecuado garantiza accesibilidad para personas con discapacidades visuales, cumpliendo con principios éticos de inclusión digital.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Paleta de Colores</h3>
+                    <p><strong>Azul Marino (#001F3F)</strong>: Representa profesionalismo, confianza y autoridad.<br>
+                    <strong>Azul Claro (#007BFF)</strong>: Simboliza acción, claridad y dinamismo.<br>
+                    <strong>Blanco y gris claro</strong>: Fondo limpio que mejora la legibilidad y reduce fatiga visual.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Diseño Responsive</h3>
+                    <p>La página se adapta perfectamente a dispositivos móviles (320px), tabletas y pantallas grandes (hasta 1440px). Se utilizó <code>flexbox</code> y <code>grid</code> para layouts flexibles, y media queries para optimizar la experiencia en cada breakpoint. Esto garantiza que todos los usuarios accedan al contenido sin barreras tecnológicas.</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Principio ético fundamental:</strong> El diseño web debe ser inclusivo y accesible. La simplicidad no es solo estética, sino un acto de responsabilidad social que permite que <em>todos</em> —independientemente de su dispositivo, conexión o capacidad— puedan aprender sobre ética y desarrollo profesional.
+            </div>
+        </section>
+
+        <!-- 2. Análisis del Libro -->
+        <section id="libro">
+            <h2>2. Análisis Profundo: El Club de las 5 de la Mañana</h2>
+            
+            <p><strong>Autor:</strong> Robin Sharma | <strong>Año de publicación:</strong> 2018 | <strong>Género:</strong> Desarrollo personal, liderazgo y productividad</p>
+            
+            <h3>Resumen Exhaustivo del Contenido</h3>
+            <p>El libro cuenta la historia ficticia de una emprendedora en crisis emocional y un empresario al borde del colapso, quienes son guiados por un misterioso mentor hacia el <strong>Club de las 5 de la mañana</strong>. A través de esta narrativa, Sharma presenta un sistema práctico para transformar la vida mediante una rutina matutina poderosa: la <strong>fórmula 20/20/20</strong>.</p>
+            
+            <p>El núcleo del mensaje es que <em>el dominio de uno mismo es el primer paso hacia el liderazgo auténtico</em>. Al levantarse a las 5 AM, se crea un espacio sagrado para el crecimiento personal antes de que el mundo despierte con sus demandas. Este hábito no solo mejora la productividad, sino que cultiva disciplina, claridad mental y resiliencia emocional.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>La Fórmula 20/20/20</h3>
+                    <ul>
+                        <li><strong>5:00 – 5:20 | Movimiento:</strong> Ejercicio físico intenso para aumentar energía, dopamina y confianza.</li>
+                        <li><strong>5:20 – 5:40 | Reflexión:</strong> Meditación, gratitud, journaling y planificación del día con intención.</li>
+                        <li><strong>5:40 – 6:00 | Crecimiento:</strong> Lectura, estudio o aprendizaje de habilidades que potencien tu carrera y propósito.</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Los 4 Focos Internos del Liderazgo</h3>
+                    <ul>
+                        <li><strong>Mente:</strong> Claridad, enfoque y eliminación de distracciones mentales.</li>
+                        <li><strong>Corazón:</strong> Relaciones auténticas, empatía y conexión emocional.</li>
+                        <li><strong>Salud:</strong> Vitalidad física como base de toda productividad sostenida.</li>
+                        <li><strong>Alma:</strong> Propósito trascendente, contribución y legado personal.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Justificación del Valor Ético y Profesional</h3>
+            <p class="highlight">
+                <strong>El libro no es solo un manual de productividad, sino una guía ética para vivir con integridad.</strong> Sharma plantea que <em>la verdadera grandeza comienza con el autocontrol</em>. En un entorno profesional lleno de distracciones, presiones y tentaciones, la disciplina matutina se convierte en un acto de <strong>responsabilidad personal</strong> y <strong>liderazgo de servicio</strong>. Al dominar tus mañanas, te conviertes en una versión más confiable, enfocada y empática de ti mismo —cualidades esenciales para cualquier líder ético.
+            </p>
+        </section>
+
+        <!-- 3. Análisis Ético -->
+        <section id="etica">
+            <h2>3. Principios Éticos Clave Extraídos del Libro</h2>
+            
+            <p>El libro ofrece una base sólida para reflexionar sobre cómo los hábitos diarios moldean el carácter profesional. A continuación, se analizan tres principios éticos centrales:</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Responsabilidad Personal Absoluta</h3>
+                    <p>Sharma insiste en que <em>“tu vida es 100% responsabilidad tuya”</em>. No hay lugar para culpar al jefe, al mercado o al sistema. Este principio ético exige que asumamos el control total de nuestras decisiones, especialmente las primeras del día. En el ámbito profesional, significa llegar preparado, cumplir compromisos y no depender de factores externos para rendir al máximo.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Integridad como Hábito Diario</h3>
+                    <p>La integridad no es un evento aislado, sino el resultado de miles de pequeñas decisiones coherentes. Levantarse a las 5 AM cuando nadie te ve es un acto de integridad. En el trabajo, esto se traduce en entregar proyectos a tiempo, decir la verdad aunque duela, y mantener estándares altos incluso bajo presión.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Liderazgo de Servicio y Legado</h3>
+                    <p>El verdadero éxito no es acumular títulos o dinero, sino <em>elevar a otros</em>. Sharma redefine el liderazgo como servicio: usar tu influencia para mentorizar, inspirar y facilitar el crecimiento de tu equipo. El profesional ético no compite por destacar, sino por contribuir al bien común y dejar un legado positivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Dilemas Prácticos -->
+        <section id="dilemas">
+            <h2>4. Aplicación Práctica: 3 Dilemas Profesionales Resueltos con el Libro</h2>
+            
+            <p>A continuación, se presentan tres escenarios reales comunes en el entorno laboral, con soluciones basadas en los principios del libro:</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Dilema 1: Presión por Resultados Inmediatos</h3>
+                    <p><strong>Situación:</strong> Un gerente de proyectos recibe una orden de la alta dirección para entregar un sistema en 15 días, sabiendo que la calidad mínima requiere 30. Aceptar implica errores graves; rechazar pone en riesgo su puesto.</p>
+                    <p><strong>Solución con el libro:</strong> Gracias a la <em>reflexión matutina (5:20–5:40)</em>, el profesional tiene claridad mental para preparar una presentación sólida con datos, riesgos y alternativas. Usa el <em>foco en el alma</em> para defender estándares éticos: “Entregar un producto defectuoso daña a clientes y a la empresa a largo plazo”. Negocia plazos realistas con integridad y liderazgo de servicio.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Dilema 2: Competencia Desleal y Robo de Crédito</h3>
+                    <p><strong>Situación:</strong> Un colega presenta tu idea innovadora en una reunión como propia y recibe elogios del jefe. Confrontar puede generar conflicto; callar fomenta injusticia.</p>
+                    <p><strong>Solución con el libro:</strong> El <em>crecimiento diario (5:40–6:00)</em> mantiene al profesional enfocado en su desarrollo, no en la competencia. Usa el <em>foco en el corazón</em> para confrontar con empatía: “Me alegra que te guste la idea. La desarrollé la semana pasada, ¿podemos presentarla juntos?”. Transforma el conflicto en colaboración, modelando integridad y liderazgo de servicio.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Dilema 3: Agotamiento Laboral (Burnout)</h3>
+                    <p><strong>Situación:</strong> Un analista trabaja 14 horas diarias durante meses, con errores crecientes, ansiedad y desconexión familiar. Seguir así es insostenible; reducir horas parece irresponsable.</p>
+                    <p><strong>Solución con el libro:</strong> Implementa la <em>fórmula 20/20/20</em> para restablecer equilibrio. El <em>movimiento</em> reduce estrés fisiológico, la <em>reflexión</em> reconecta con su propósito (“trabajo para vivir, no vivo para trabajar”), y el <em>crecimiento</em> le da herramientas para delegar y automatizar. En 30 días, recupera energía, mejora rendimiento y negocia horarios sostenibles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Recursos Didácticos -->
+        <section id="recursos">
+            <h2>5. Recursos Didácticos Interactivos</h2>
+            
+            <!-- Video 1 con Portada -->
+            <div class="resource">
+                <img src="https://img.youtube.com/vi/WxJlhGVmScc/maxresdefault.jpg" alt="Portada del video: Resumen animado de El Club de las 5 AM">
+                <div>
+                    <h3>Video: Resumen Animado Completo (4:32 min)</h3>
+                    <p>Resumen visual dinámico que explica la fórmula 20/20/20, los 4 focos internos y cómo implementar el hábito paso a paso. Ideal para comprensión rápida y motivación inicial.</p>
+                    <p><a href="https://youtu.be/WxJlhGVmScc?si=wH3ea0nmgslXsQgS" target="_blank">Ver en YouTube</a></p>
+                </div>
+            </div>
+            
+            <!-- Video 2 (Podcast en YouTube) con Portada -->
+            <div class="resource">
+                <img src="https://img.youtube.com/vi/imh09dH-bqI/maxresdefault.jpg" alt="Portada del video: Robin Sharma en entrevista sobre hábitos diarios">
+                <div>
+                    <h3>Podcast: Robin Sharma - "Attract WEALTH with These DAILY Habits!"</h3>
+                    <p>Entrevista profunda donde Sharma explica cómo los hábitos matutinos generan riqueza interior y exterior. Incluye ejemplos reales de líderes que aplican el método 20/20/20.</p>
+                    <p><a href="https://youtu.be/imh09dH-bqI?si=kW9JnXRZm1vDu0X3" target="_blank">Ver en YouTube</a></p>
+                </div>
+            </div>
+            
+            <!-- Cuestionario -->
+            <div class="quiz">
+                <h3>Autoevaluación: ¿Estás Listo para el Club de las 5 AM?</h3>
+                <p>Responde con honestidad para identificar tu punto de partida y área de mejora.</p>
+                
+                <div class="question">
+                    <h4>1. ¿Qué porcentaje de tu potencial crees que estás utilizando actualmente?</h4>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> a) Menos del 30% – Siento que hay mucho más en mí</label>
+                        <label><input type="radio" name="q1" value="b"> b) Entre 30% y 60% – Rindo bien, pero sé que puedo más</label>
+                        <label><input type="radio" name="q1" value="c"> c) Más del 60% – Estoy cerca de mi mejor versión</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <h4>2. ¿Cuál es tu mayor obstáculo para levantarte temprano?</h4>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> a) Cansancio acumulado por noches largas</label>
+                        <label><input type="radio" name="q2" value="b"> b) Falta de un propósito claro que me motive</label>
+                        <label><input type="radio" name="q2" value="c"> c) Hábitos nocturnos arraigados (redes, TV)</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <h4>3. ¿Cuál de los 4 focos internos necesitas fortalecer más?</h4>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="Mente"> Mente (enfoque y claridad)</label>
+                        <label><input type="radio" name="q3" value="Corazón"> Corazón (relaciones y empatía)</label>
+                        <label><input type="radio" name="q3" value="Salud"> Salud (energía y vitalidad)</label>
+                        <label><input type="radio" name="q3" value="Alma"> Alma (propósito y contribución)</label>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="evaluarQuiz()">Evaluar Mis Respuestas</button>
+                <div id="quiz-result"></div>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto Final | Ética Profesional | Universidad Mariano Gálvez</p>
+        <p> &copy; 2025</p>
+    </footer>
+
+    <script>
+        function evaluarQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const resultado = document.getElementById('quiz-result');
+
+            if (!q1 || !q2 || !q3) {
+                resultado.textContent = "Por favor, responde todas las preguntas antes de evaluar.";
+                resultado.className = "incorrect";
+                return;
+            }
+
+            let mensaje = "";
+            let tipo = "";
+
+            // Análisis sencillo basado en las respuestas
+            if (q1.value === "a" || q2.value === "b") {
+                mensaje = "Tienes un gran potencial sin explotar. Empieza con pequeños cambios matutinos y establece un propósito claro para tus mañanas.";
+                tipo = "incorrect";
+            } else if (q1.value === "b" || q2.value === "c") {
+                mensaje = "Estás en buen camino, pero aún puedes fortalecer tu disciplina y foco mental. Intenta implementar la fórmula 20/20/20 por 15 días.";
+                tipo = "correct";
+            } else {
+                mensaje = "Excelente. Estás cerca de dominar tus hábitos matutinos y liderar con propósito y ética. ¡Sigue cultivando tu crecimiento!";
+                tipo = "correct";
+            }
+
+            resultado.textContent = mensaje;
+            resultado.className = tipo;
+        }
+    </script>
+
+</body>
+</html>
